@@ -37,6 +37,7 @@ class TransferConstraint {
                 listQuery.forEach{
                     it.executeUpdate()
                 }
+                conn.commit()
             } catch (exception: SQLException) {
                 println(exception)
                 return ErrorCode.INVALID_BALANCE
