@@ -66,6 +66,7 @@ class TransferOptimisticLock {
                 conn.commit()
             } catch (exception: SQLException) {
                 println(exception)
+                conn.rollback()
             } finally {
                 conn.autoCommit = autoCommit
             }

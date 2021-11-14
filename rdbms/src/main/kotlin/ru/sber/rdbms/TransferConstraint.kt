@@ -40,6 +40,7 @@ class TransferConstraint {
                 conn.commit()
             } catch (exception: SQLException) {
                 println(exception)
+                conn.rollback()
                 return ErrorCode.INVALID_BALANCE
             } finally {
                 conn.autoCommit = autoCommit
