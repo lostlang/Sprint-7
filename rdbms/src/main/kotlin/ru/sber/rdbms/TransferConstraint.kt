@@ -33,10 +33,10 @@ class TransferConstraint {
             listQuery.add(prepareStatement)
 
             try {
+                conn.autoCommit = false
                 listQuery.forEach{
                     it.executeUpdate()
                 }
-
             } catch (exception: SQLException) {
                 println(exception)
                 return ErrorCode.INVALID_BALANCE
